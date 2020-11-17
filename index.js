@@ -41,6 +41,14 @@ client.connect(err => {
       })
   })
 
+  app.get('/customerHouses', (req, res) => {
+    customerHouses.find({})
+      .toArray((err, documents) => {
+        res.send(documents)
+      })
+  })
+
+
   app.get('/housesByCustomer', (req, res) => {
     const queryEmail = req.query.email
     console.log(queryEmail)
@@ -59,6 +67,8 @@ client.connect(err => {
       })
   })
 
+
+  
 
  
 app.post('/addHouseByAdmin', (req, res) => {
